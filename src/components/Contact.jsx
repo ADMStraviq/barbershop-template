@@ -94,7 +94,7 @@ export default function Contact() {
             <iframe
               src={config.googleMapsEmbedUrl}
               title="Google Maps"
-              className="w-full h-full grayscale"
+              className="w-full h-full"
               frameBorder="0"
               scrolling="no"
               allowFullScreen
