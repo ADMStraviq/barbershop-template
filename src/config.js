@@ -66,6 +66,38 @@ const config = {
   bookingUrl: "https://cal.com/barbershop/appointment",
 
   primaryColor: "#C9A84C",
+
+  reviews: {
+    rating: 5.0,
+    count: 0,
+    platform: "Google",
+    items: [
+      {
+        name: "Kunde A",
+        rating: 5,
+        date: "vor 2 Wochen",
+        text: "Platzhalter Bewertung 1 — wird durch echte Google Bewertung ersetzt."
+      },
+      {
+        name: "Kunde B",
+        rating: 5,
+        date: "vor 1 Monat",
+        text: "Platzhalter Bewertung 2 — wird durch echte Google Bewertung ersetzt."
+      },
+      {
+        name: "Kunde C",
+        rating: 5,
+        date: "vor 3 Wochen",
+        text: "Platzhalter Bewertung 3 — wird durch echte Google Bewertung ersetzt."
+      },
+      {
+        name: "Kunde D",
+        rating: 5,
+        date: "vor 1 Monat",
+        text: "Platzhalter Bewertung 4 — wird durch echte Google Bewertung ersetzt."
+      }
+    ]
+  }
 }
 
 export default config

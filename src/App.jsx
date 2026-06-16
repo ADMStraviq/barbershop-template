@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import Gallery from './components/Gallery'
 import Booking from './components/Booking'
+import Reviews from './components/Reviews'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Impressum from './pages/Impressum'
@@ -21,6 +22,7 @@ export default function App() {
               <Hero />
               <Services />
               <Gallery />
+              <Reviews />
               <Booking />
               <Contact />
             </main>
