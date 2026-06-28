@@ -1,6 +1,15 @@
 import config from '../config'
 
+const categoryLabels = {
+  herren: 'Herren',
+  bart: 'Bart & Rasur',
+  pflege: 'Pflege & Detail',
+  paket: 'Paket',
+}
+
 export default function Services() {
+  const categories = config.serviceCategories
+
   return (
     <section id="services" className="bg-dark-card py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -14,38 +23,40 @@ export default function Services() {
           </h2>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
-          {config.services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-dark-card p-8 lg:p-10 group hover:bg-[#141414] transition-colors duration-300"
-            >
-              {/* Number */}
-              <span className="block font-playfair text-5xl font-semibold text-gold/15 group-hover:text-gold/35 transition-colors duration-500 mb-6 select-none">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-
-              {/* Name */}
-              <h3 className="font-playfair text-xl font-semibold text-off-white mb-3">
-                {service.name}
-              </h3>
-
-              {/* Rule */}
-              <div className="w-8 h-px bg-gold mb-5" />
-
-              {/* Description */}
-              <p className="font-montserrat text-sm text-off-white/50 leading-relaxed mb-8">
-                {service.description}
+        {/* Categories */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+          {Object.entries(categories).map(([key, services]) => (
+            <div key={key}>
+              {/* Category header */}
+              <p className="text-xs tracking-[0.4em] uppercase font-montserrat text-gold mb-6">
+                {categoryLabels[key] ?? key}
               </p>
 
-              {/* Price */}
-              <span className="font-cormorant text-2xl tracking-wide text-gold">
-                {service.price}
-              </span>
+              {/* Service rows */}
+              <div className="flex flex-col">
+                {services.map((service, i) => (
+                  <div
+                    key={i}
+                    className="flex items-baseline justify-between py-3 gap-4 border-b border-white/8"
+                  >
+                    <span className="font-montserrat text-sm text-off-white">
+                      {service.name}
+                    </span>
+                    <span className="font-cormorant text-xl text-gold shrink-0">
+                      {service.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
+
+        {config.servicesNote && (
+          <p className="text-center text-gold/70 italic font-cormorant text-base mt-12">
+            {config.servicesNote}
+          </p>
+        )}
       </div>
     </section>
   )

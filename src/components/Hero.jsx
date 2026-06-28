@@ -1,8 +1,5 @@
+import { Link } from 'react-router-dom'
 import config from '../config'
-
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
 
 export default function Hero() {
   return (
@@ -15,8 +12,8 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${config.heroImageUrl})` }}
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-dark/65" />
+      {/* Dark overlay — strong enough for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/50" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -45,20 +42,18 @@ export default function Hero() {
 
         {/* CTA */}
         {config.bookingEnabled ? (
-          <button
-            onClick={() => scrollTo('booking')}
-            className="font-montserrat font-semibold text-xs tracking-[0.25em] uppercase transition-colors duration-300"
-            style={{ background: 'transparent', border: '1px solid #C9A84C', color: '#C9A84C', padding: '12px 28px' }}
+          <Link
+            to="/termin"
+            className="inline-block bg-gold text-dark font-montserrat font-semibold text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-gold/90 transition-all duration-300"
           >
             Termin buchen
-          </button>
+          </Link>
         ) : (
           <a
             href={`https://wa.me/${config.whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block font-montserrat font-semibold text-xs tracking-[0.25em] uppercase transition-colors duration-300"
-            style={{ background: 'transparent', border: '1px solid #C9A84C', color: '#C9A84C', padding: '12px 28px' }}
+            className="inline-block bg-gold text-dark font-montserrat font-semibold text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-gold/90 transition-all duration-300"
           >
             Per WhatsApp buchen
           </a>

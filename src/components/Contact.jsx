@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import config from '../config'
 
 function WhatsAppIcon() {
@@ -77,16 +78,33 @@ export default function Contact() {
               </ul>
             </div>
 
-            {/* WhatsApp CTA */}
-            <a
-              href={`https://wa.me/${config.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-gold text-gold font-montserrat text-xs tracking-[0.2em] uppercase px-8 py-4 hover:bg-gold hover:text-dark transition-all duration-300 w-fit"
-            >
-              <WhatsAppIcon />
-              Per WhatsApp schreiben
-            </a>
+            {/* Primary CTA */}
+            <div className="flex flex-col gap-4">
+              <Link
+                to="/termin"
+                className="inline-block bg-gold text-dark font-montserrat text-xs tracking-[0.3em] uppercase px-8 py-4 hover:bg-gold/90 transition-all duration-300 w-fit text-center"
+              >
+                Termin buchen
+              </Link>
+              <div className="flex items-center gap-5">
+                <a
+                  href={`https://wa.me/${config.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-montserrat text-xs tracking-[0.15em] uppercase text-off-white/40 hover:text-gold transition-colors duration-300"
+                >
+                  <WhatsAppIcon />
+                  WhatsApp
+                </a>
+                <span className="text-white/15">·</span>
+                <a
+                  href={`tel:${config.phone}`}
+                  className="font-montserrat text-xs tracking-[0.15em] uppercase text-off-white/40 hover:text-gold transition-colors duration-300"
+                >
+                  Anrufen
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* Right: Google Maps */}

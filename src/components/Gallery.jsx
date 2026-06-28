@@ -7,8 +7,9 @@ function GalleryImage({ img, className = '' }) {
         src={img.url}
         alt={img.alt}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        style={{ objectPosition: img.position || 'center' }}
       />
-      <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/55 transition-colors duration-500 flex items-center justify-center">
+      <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/55 transition-colors duration-500 hidden md:flex items-center justify-center">
         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 border border-gold/60 px-6 py-3">
           <span className="text-[10px] tracking-[0.35em] uppercase font-montserrat text-off-white">
             Ansehen
