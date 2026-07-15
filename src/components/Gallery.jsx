@@ -1,8 +1,8 @@
 import config from '../config'
 
-function GalleryImage({ img, className = '' }) {
+function GalleryImage({ img }) {
   return (
-    <div className={`relative overflow-hidden group cursor-pointer ${className}`}>
+    <div className="relative overflow-hidden group cursor-pointer h-80">
       <img
         src={img.url}
         alt={img.alt}
@@ -36,23 +36,11 @@ export default function Gallery() {
           </h2>
         </div>
 
-        {/* Asymmetric 3-column grid */}
+        {/* 3 columns × 2 rows on desktop, 1 column on mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {/* Row 1: wide (2 cols) + narrow */}
-          {imgs[0] && (
-            <GalleryImage img={imgs[0]} className="sm:col-span-2 h-72 sm:h-96" />
-          )}
-          {imgs[1] && (
-            <GalleryImage img={imgs[1]} className="h-72 sm:h-96" />
-          )}
-
-          {/* Row 2: narrow + wide (2 cols) */}
-          {imgs[2] && (
-            <GalleryImage img={imgs[2]} className="h-64 sm:h-72" />
-          )}
-          {imgs[3] && (
-            <GalleryImage img={imgs[3]} className="sm:col-span-2 h-64 sm:h-72" />
-          )}
+          {imgs.map((img) => (
+            <GalleryImage key={img.url} img={img} />
+          ))}
         </div>
       </div>
     </section>

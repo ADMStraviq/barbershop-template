@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import config from '../config'
 
 const categoryLabels = {
@@ -7,8 +9,29 @@ const categoryLabels = {
   paket: 'Paket',
 }
 
+function ServiceRows({ services }) {
+  return (
+    <div className="flex flex-col">
+      {services.map((service, i) => (
+        <div
+          key={i}
+          className="flex items-baseline justify-between py-3 gap-4 border-b border-white/5"
+        >
+          <span className="font-montserrat text-sm text-off-white">
+            {service.name}
+          </span>
+          <span className="font-cormorant text-xl text-gold shrink-0">
+            {service.price}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export default function Services() {
   const categories = config.serviceCategories
+  const [openCategory, setOpenCategory] = useState(null)
 
   return (
     <section id="services" className="bg-dark-card py-24 lg:py-32">
@@ -23,33 +46,33 @@ export default function Services() {
           </h2>
         </div>
 
-        {/* Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-          {Object.entries(categories).map(([key, services]) => (
-            <div key={key}>
-              {/* Category header */}
-              <p className="text-xs tracking-[0.4em] uppercase font-montserrat text-gold mb-6">
-                {categoryLabels[key] ?? key}
-              </p>
-
-              {/* Service rows */}
-              <div className="flex flex-col">
-                {services.map((service, i) => (
-                  <div
-                    key={i}
-                    className="flex items-baseline justify-between py-3 gap-4 border-b border-white/8"
-                  >
-                    <span className="font-montserrat text-sm text-off-white">
-                      {service.name}
-                    </span>
-                    <span className="font-cormorant text-xl text-gold shrink-0">
-                      {service.price}
-                    </span>
+        {/* Accordion — same layout on all screen sizes */}
+        <div className="max-w-3xl mx-auto">
+          {Object.entries(categories).map(([key, services]) => {
+            const isOpen = openCategory === key
+            return (
+              <div key={key} className="border-b border-white/5">
+                <button
+                  onClick={() => setOpenCategory(isOpen ? null : key)}
+                  className="w-full flex items-center justify-between py-5 text-left"
+                >
+                  <span className="text-xs tracking-[0.4em] uppercase font-montserrat text-gold">
+                    {categoryLabels[key] ?? key}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-gold transition-transform duration-300 ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {isOpen && (
+                  <div className="pb-6">
+                    <ServiceRows services={services} />
                   </div>
-                ))}
+                )}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {config.servicesNote && (
