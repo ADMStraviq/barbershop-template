@@ -58,6 +58,16 @@ const config = {
       alt: "Barbershop chair",
       position: "center",
     },
+    {
+      url: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=1200&q=80",
+      alt: "Barbershop Detail",
+      position: "center",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1200&q=80",
+      alt: "Haarschnitt",
+      position: "center",
+    },
   ],
 
   servicesNote: "Alle Preise können je nach Haarlänge, Haarmenge und Aufwand variieren.",
