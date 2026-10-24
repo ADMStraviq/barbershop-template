@@ -1,0 +1,35 @@
+/* Schriften lokal gehostet (@fontsource), damit keine Verbindung zu
+   Google Fonts entsteht. Nur die Zeichensätze latin und latin-ext; der
+   Browser lädt dank unicode-range nur, was er braucht.
+   font-display: swap ist in @fontsource bereits gesetzt.
+   Montserrat 400 (latin) wird zusätzlich in vite.config.js vorgeladen. */
+@import '@fontsource/playfair-display/latin-400.css';
+@import '@fontsource/playfair-display/latin-ext-400.css';
+@import '@fontsource/playfair-display/latin-600.css';
+@import '@fontsource/playfair-display/latin-ext-600.css';
+@import '@fontsource/playfair-display/latin-700.css';
+@import '@fontsource/playfair-display/latin-ext-700.css';
+@import '@fontsource/playfair-display/latin-400-italic.css';
+@import '@fontsource/playfair-display/latin-ext-400-italic.css';
+@import '@fontsource/playfair-display/latin-600-italic.css';
+@import '@fontsource/playfair-display/latin-ext-600-italic.css';
+
+@import '@fontsource/montserrat/latin-300.css';
+@import '@fontsource/montserrat/latin-ext-300.css';
+@import '@fontsource/montserrat/latin-400.css';
+@import '@fontsource/montserrat/latin-ext-400.css';
+@import '@fontsource/montserrat/latin-500.css';
+@import '@fontsource/montserrat/latin-ext-500.css';
+@import '@fontsource/montserrat/latin-600.css';
+@import '@fontsource/montserrat/latin-ext-600.css';
+@import '@fontsource/montserrat/latin-700.css';
+@import '@fontsource/montserrat/latin-ext-700.css';
+
+@import '@fontsource/cormorant-garamond/latin-400.css';
+@import '@fontsource/cormorant-garamond/latin-ext-400.css';
+@import '@fontsource/cormorant-garamond/latin-500.css';
+@import '@fontsource/cormorant-garamond/latin-ext-500.css';
+@import '@fontsource/cormorant-garamond/latin-400-italic.css';
+@import '@fontsource/cormorant-garamond/latin-ext-400-italic.css';
+@import '@fontsource/cormorant-garamond/latin-500-italic.css';
+@import '@fontsource/cormorant-garamond/latin-ext-500-italic.css';
