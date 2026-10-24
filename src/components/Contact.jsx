@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import config from '../config'
+import MapConsent from './MapConsent'
 
 function WhatsAppIcon() {
   return (
@@ -109,15 +110,17 @@ export default function Contact() {
 
           {/* Right: Google Maps */}
           <div className="h-[420px] lg:h-auto min-h-[420px] border border-white/5 overflow-hidden">
-            <iframe
-              src={config.googleMapsEmbedUrl}
-              title="Google Maps"
-              className="w-full h-full"
-              frameBorder="0"
-              scrolling="no"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <MapConsent mapsUrl={config.googleMapsEmbedUrl.replace('&output=embed', '')}>
+              <iframe
+                src={config.googleMapsEmbedUrl}
+                title="Google Maps"
+                className="w-full h-full"
+                frameBorder="0"
+                scrolling="no"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </MapConsent>
           </div>
         </div>
       </div>
